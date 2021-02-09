@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 export const Navbar: React.FC = () =>
     (
@@ -7,10 +8,10 @@ export const Navbar: React.FC = () =>
                 <a href="/" className="brand-logo">React + typeScript</a>
                 <ul className="right hide-on-med-and-down">
                     <li>
-                        <a href="/">Список дел</a>
+                        <NavLink to="/">Список дел</NavLink>
                     </li>
                     <li>
-                        <a href="/">Информация</a>
+                        <NavLink to="/about">Информация</NavLink>
                     </li>
 
                 </ul>
