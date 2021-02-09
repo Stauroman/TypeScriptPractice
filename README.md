@@ -1,1 +1,0 @@
-# TodoList on React.js + TypeScript
