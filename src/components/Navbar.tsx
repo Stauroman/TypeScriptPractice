@@ -13,7 +13,12 @@ export const Navbar: React.FC = () =>
                     <li>
                         <NavLink to="/about">Информация</NavLink>
                     </li>
-
+                    <li>
+                        <NavLink to="/ws">Тест вебсокетов</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/table">Таблица Aprbot</NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>
