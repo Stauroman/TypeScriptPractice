@@ -9,24 +9,48 @@ export const Cell = () => {
 // определяем цвет фона /сделать свитч кейс
     const backgroundColorValue = () => {
         let color
-        if (valueInCell > 1.5) {
-            color = 'green'
-        } else if (valueInCell < -1.5) {
-            color = 'red'
-        } else if (valueInCell === 0) {
-            color = 'white'
-        } else {
-            color = 'yellow'
+        switch (true) {
+            case valueInCell > 1.5 :
+                color = 'green';
+                break;
+
+            case valueInCell < -1.5 :
+                color = 'red';
+                break;
+
+            case valueInCell == 0 :
+                color = 'white';
+                break;
+
+            default:
+                color = 'yellow';
+
         }
         return color
     }
-    const style = {backgroundColor: `${backgroundColorValue()}`,
+    // const backgroundColorValue = () => {
+    //     let color
+    //     if (valueInCell > 1.5) {
+    //         color = 'green'
+    //     } else if (valueInCell < -1.5) {
+    //         color = 'red'
+    //     } else if (valueInCell === 0) {
+    //         color = 'white'
+    //     } else {
+    //         color = 'yellow'
+    //     }
+    //     return color
+    // }
+    const style = {
+        backgroundColor: `${backgroundColorValue()}`,
     }
 // активируем по двойному клику
 
 
     return (<>
-            <td style={style} onDoubleClick={() => {setIsDisabled(prevState => false)}}>
+            <td style={style} onDoubleClick={() => {
+                setIsDisabled(prevState => false)
+            }}>
                 <input type='text'
                        disabled={isDisabled}
                        value={valueInCell}
@@ -37,7 +61,9 @@ export const Cell = () => {
                 />
             </td>
             <button onDoubleClick={() => {
-                {setIsDisabled(prevState => true)}
+                {
+                    setIsDisabled(prevState => true)
+                }
                 console.log(isDisabled)
 
             }}>log
