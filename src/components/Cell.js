@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 
-export const Cell = () => {
+export const Cell = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
-    const [valueInCell, setValueInCell] = useState(0);
+    const [valueInCell, setValueInCell] = useState('');
     const handleChange = (e) => {
         setValueInCell(e.target.value)
     }
-// определяем цвет фона /сделать свитч кейс
+// определяем цвет фона
     const backgroundColorValue = () => {
         let color
         switch (true) {
@@ -48,26 +48,25 @@ export const Cell = () => {
 
 
     return (<>
-            <td style={style} onDoubleClick={() => {
+            <td id={props.id}
+                style={style} onDoubleClick={() => {
                 setIsDisabled(prevState => false)
             }}>
-                <input type='text'
-                       disabled={isDisabled}
-                       value={valueInCell}
-                       onChange={handleChange}
-                       onFocus={true}
-
-
+                <input
+                    type='text'
+                    disabled={isDisabled}
+                    value={valueInCell}
+                    onChange={handleChange}
                 />
             </td>
-            <button onDoubleClick={() => {
-                {
-                    setIsDisabled(prevState => true)
-                }
-                console.log(isDisabled)
+            {/*<button onDoubleClick={() => {*/}
+            {/*    {*/}
+            {/*        setIsDisabled(prevState => true)*/}
+            {/*    }*/}
+            {/*    console.log(isDisabled)*/}
 
-            }}>log
-            </button>
+            {/*}}>log*/}
+            {/*</button>*/}
         </>
     )
 }
