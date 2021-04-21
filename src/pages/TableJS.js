@@ -10,17 +10,26 @@ export const Table = () => {
     //
     //     }
     // }
+    const matrix = (rows, columns) => {
 
+        let arr = [];
+        for (let i = 0; i < rows; i++) {
+            arr[i] = [];
+            for (let j = 0; j < columns; j++) {
+                arr[i][j] = [i, j];
+            }
+        }
+        return arr
+    }
+    const myMatrix = matrix(20, 20)
     return (
-        <table>
-            <tbody>
-            <tr>
-                {/*{row()}*/}
-                {Array(10).map(( e, index) => { return <Cell key={index}/>})}
-            </tr>
-            </tbody>
-
-        </table>)
+        <>
+            <table>
+                <tbody>
+                {myMatrix.map(e => <tr key={e}>{e.map(subEl => <Cell key={subEl} id={subEl}/>)}</tr>)}
+                </tbody>
+            </table>
+        </>)
 }
 // function matrixArray(rows,columns){
 //     var arr = new Array();
